@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Typing game</title>
+
+    <style>
+      * {
+          margin: 0;
+          padding: 0;
+          box-sizing: border-box;
+          -webkit-box-sizing: border-box;
+      }
+
+      body {
+          background-color: #9E0000;
+          font-family: 'Raleway', sans-serif;
+      }
+
+      .wrapper {
+          max-width: 600px;
+          margin: 0 auto;
+          width: 100%;
+          text-align: center;
+          padding: 2%;
+          background-color: #424242;
+          height: 500px;
+      }
+
+      h1 {
+          color: #ecf0f1;
+      }
+
+      h1 + p {
+          margin-bottom: 5%;
+          color: #3498db;
+      }
+
+      .scoreWrap {float: left;}
+      .timeWrap {float: right;}
+
+      .outerWrap:after {
+          content: "";
+          display: block;
+          clear: both;
+      }
+
+      .bg {
+          background-color: #04AF71;
+      }
+
+      button {
+         border: none;
+        background-color: #FF7373;
+        box-shadow: 0px 5px 0px 0px #CE4646;
+        outline: none;
+        border-radius: 5px;
+        padding: 10px 15px;
+        font-size: 22px;
+        text-decoration: none;
+        margin: 20px;
+        color: #040404;
+        position: relative;
+        display: inline-block;
+        cursor: pointer;
+      }
+
+      button:active {
+        transform: translate(0px, 5px);
+        -webkit-transform: translate(0px, 5px);
+        box-shadow: 0px 1px 0px 0px;
+      }
+
+      .scoreWrap p, .scoreWrap span, .timeWrap p, .timeWrap span {
+          font-size: 30px;
+          color: #E31313;
+      }
+
+      .wordsWrap {
+          margin-top: 50px;
+      }
+
+      .words span{
+          font-size: 60px;
+          letter-spacing: 1px;
+          color: #0B0B0B;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="wrapper">
+      <!-- Rest of your HTML content goes here -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+      <script src="typing.js"></script>
+      <link rel="stylesheet" type="text/css" href="typing.css" />
+      <html>
+        <head>
+          <meta charset="utf-8" />
+          <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+          <title>Typing game</title>
+          <link <link rel="stylesheet" href="animate.css" />
+          <link rel="stylesheet" href="main.css" />
+        </head>
+        <body>
+          <div class="wrapper">
+            <h1>Typing game</h1>
+            <p>Type as many words as you can until time runs out!</p>
+            <button>START</button>
+            <div class="outerWrap">
+              <div class="scoreWrap">
+                <p>Score</p>
+                <span class="score">0</span>
+              </div>
+              <div class="timeWrap">
+                <p>Time left</p>
+                <span class="time">60</span>
+              </div>
+            </div>
+            <div class="wordsWrap">
+              <p class="words"></p>
+            <!DOCTYPE html>
+<html>
+<head>
+    <!-- Your existing head content... -->
+    <audio id="correctSound" src="correct_sound.mp3" preload="auto"></audio>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const userInput = document.getElementById('userInput');
+            const correctSound = document.getElementById('correctSound');
+            const incorrectSound = document.getElementById('incorrectSound');
+
+            let targetWord = 'example';
+            let currentIndex = 0;
+
+            userInput.addEventListener('input', function() {
+                if (userInput.value.toLowerCase() === targetWord) {
+                    userInput.value = '';
+                    currentIndex = 0;
+                    correctSound.currentTime = 0;
+                    correctSound.play();
+                } else if (userInput.value[currentIndex] === targetWord[currentIndex]) {
+                    currentIndex++;
+                } else {
+                    userInput.value = '';
+                    currentIndex = 0;
+                    incorrectSound.currentTime = 0;
+                    incorrectSound.play();
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <!-- Your existing content... -->
+        <button id="homeButton">HOME</button>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="typing.js"></script>
+    <link rel="stylesheet" type="text/css" href="typingy.css" />
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let homeButton = document.getElementById('homeButton');
+            homeButton.addEventListener('click', function() {
+                window.location.href = '../landing/landing.html';
+            });
+        });
+    </script>
+</body>
+</html>
+

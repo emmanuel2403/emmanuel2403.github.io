@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.7.0/addons/p5.sound.min.js"></script>
+<!--     <link rel="stylesheet" type="text/css" href="landing.css"> -->
+    <meta charset="utf-8" />
+
+  </head>
+  <body>
+    <div id = "home" class="topnav">
+      <a class="active" href="../home/index.html">Home</a>
+</div>
+    <style>
+  html, body {
+  margin: 0;
+  padding: 0;
+}
+  .topnav {
+  background-color: #800000;
+  overflow: hidden;
+  width: 720 px;
+  margin: 0;
+  padding: 0;
+}
+
+/* Style the links inside the navigation bar */
+  .topnav a {
+  float: left;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 16px 14px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Change the color of links on hover */
+.topnav a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav a.active {
+  background-color:	#ffd700;
+  color: black;
+}
+    </style>
+    <script> 
+let typing;
+let dragndrop;
+let numbergame;
+let home;
+
+function setup() {
+  createCanvas(windowWidth, windowHeight);
+  typing = loadImage('typing.png');
+  dragndrop = loadImage('drag.png');
+  numbergame = loadImage('number.png');
+
+}
+function draw() {
+
+  background('gold');
+  
+  square(200,150,350);
+  image (typing, 200, 200, 350, 300);
+  square(600,150,350);
+  image (dragndrop, 600, 200, 350, 300);
+  square(1000,150,350);
+  image (numbergame, 1000, 200, 350, 300);
+  
+  
+  fill('maroon');
+  rect(200,150,350,50);
+  fill('black');
+  textSize(30);
+  text('Typing Game', 285, 185);
+ 
+
+  fill('lightblue');
+ rect(600,150,350,50);
+  fill('black');
+ textSize(30);
+ text('Drag and Drop', 685, 185);
+  
+  fill('lightgreen');
+  rect(1000,150,350,50);
+  fill('black');
+  textSize(30);
+ text('Number Game', 1085, 185);
+
+}
+ function mousePressed() {
+  // Check if the mouse click occurred within a specific area.
+//     if (mouseX > 0 && mouseX < 250 && mouseY > 0 && mouseY < 50) {
+//     // Replace 'https://example.com' with the URL you want to open.
+//     window.location.href = '../home/index.html';
+//  }
+   if (mouseX > 200 && mouseX < 550 && mouseY > 150 && mouseY < 450)
+   {
+    // Replace 'https://example.com' with the URL you want to open.
+    window.location.href = "../typing/typing.html";
+  }
+      if (mouseX > 600 && mouseX < 950 && mouseY > 150 && mouseY < 450) {
+    // Replace 'https://example.com' with the URL you want to open.
+    window.location.href = '../xdrag/drag.html';
+  }
+         if (mouseX > 1000 && mouseX < 1350 && mouseY > 150 && mouseY < 450) {
+    // Replace 'https://example.com' with the URL you want to open.
+    window.location.href = '../ynumber_game/number.html';
+  }
+ 
+}
+    </script>
+    <main>
+    </main>
+<!--     <script src = "landy.js"></script> -->
+     </body>
+</html>
