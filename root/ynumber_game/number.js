@@ -20,10 +20,10 @@ function setup() {
   canvas.parent('game-container');
 
   // Create audio elements
-  correctSound = createAudio('path/to/correct-sound.mp3', () => {
+  correctSound = createAudio('correct.mp3', () => {
     correctSoundReady = true;
   });
-  incorrectSound = createAudio('path/to/incorrect-sound.mp3', () => {
+  incorrectSound = createAudio('error.mp3', () => {
     incorrectSoundReady = true;
   });
 
