@@ -1,7 +1,9 @@
+
 let temp, button, words, timerDiv, scoreDiv, spans, typed, seconds, spark, points;
 
 function setup() {
-  
+  createCanvas(400, 400);
+
   temp = select('.time');
   button = select("button");
   words = select(".words");
@@ -11,7 +13,8 @@ function setup() {
   spans = [];
   typed = '';
   seconds = 60;
-  spark = new Audio("http://k003.kiwi6.com/hotlink/qdpr7bioht/spark.mp3");
+  spark = new Audio("correct.mp3");
+  error = new Audio("error.mp3");
 
   button.mousePressed(startGame);
 }
@@ -20,6 +23,7 @@ function startGame() {
   countdown();
   randomWords();
   button.attribute("disabled", "true");
+  document.addEventListener("keydown", typing); // Add the event listener back
 }
 
 function countdown() {
@@ -36,6 +40,7 @@ function countdown() {
       clearInterval(timer);
       seconds = 60;
       temp.html("60");
+      removeEventListener(); // Remove the event listener
     }
   }, 1000);
 }
@@ -51,6 +56,10 @@ function randomWords() {
     words.child(span);
     spans.push(span);
   }
+}
+
+function removeEventListener() {
+  document.removeEventListener("keydown", typing);
 }
 
 function typing(e) {
@@ -90,8 +99,54 @@ function typing(e) {
   }
 }
 
+function typing(e) {
+  typed = String.fromCharCode(e.which);
+
+  let found = false; // Add a flag to check if a match is found
+  for (let i = 0; i < spans.length; i++) {
+    if (spans[i].html() === typed) {
+      if (spans[i].class() === "span bg") {
+        continue;
+      } else if (spans[i].class() !== "span bg" && (i === 0 || spans[i - 1].class() === "span bg")) {
+        spans[i].class("span bg");
+        found = true; // Match found
+        break;
+      }
+    }
+  }
+
+  if (!found) {
+    // Play the "error" audio if no match is found
+    error.pause();
+    error.currentTime = 0;
+    error.play();
+  }
+
+  let checker = 0;
+  for (let j = 0; j < spans.length; j++) {
+    if (spans[j].class() === "span bg") {
+      checker++;
+    }
+
+    if (checker === spans.length) {
+      spark.pause();
+      spark.currentTime = 0;
+      spark.play();
+      words.class("words animated fadeOut");
+      points++;
+      scoreDiv.html(points);
+
+      setTimeout(function () {
+        words.class("words");
+        spans = [];
+        randomWords();
+      }, 400);
+    }
+  }
+}
+
 function draw() {
-  background(220);
+  background(66);
 }
 
 const list = ['ACCOUNT', 'ACCURATE', 'ACRES', 'ACROSS', 'ACT', 'ACTION', 'ACTIVE', 'ACTIVITY',
