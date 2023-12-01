@@ -9,7 +9,7 @@ let lives = MAX_LIVES;
 let isGameOver = false;
 let restartPromptVisible = false;
 
-// Add these variables to store audio elements
+// Add variables to store audio elements
 let correctSound;
 let incorrectSound;
 let correctSoundReady = false;
@@ -112,7 +112,7 @@ function playCorrectSound() {
     incorrectSound.pause();
     correctSound.play();
   } else {
-    setTimeout(playCorrectSound, 100);
+    setTimeout(playCorrectSound, 1);
   }
 }
 
@@ -121,7 +121,7 @@ function playIncorrectSound() {
     correctSound.pause();
     incorrectSound.play();
   } else {
-    setTimeout(playIncorrectSound, 100);
+    setTimeout(playIncorrectSound, 1);
   }
 }
 
